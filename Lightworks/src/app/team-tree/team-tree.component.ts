@@ -15,6 +15,8 @@ export class TeamTreeComponent implements OnInit, OnDestroy {
 
   @ViewChild('canvas') canvas: ElementRef | undefined;
 
+  teamTreeImg: any;
+
   constructor() {
     this.mouseX = 0;
     this.mouseY = 0;
@@ -64,12 +66,18 @@ export class TeamTreeComponent implements OnInit, OnDestroy {
       this.canvasRef = p.createCanvas(1920, 1280);
       this.canvasRef.position(0,0);
       this.canvasRef.style("z-index", -1);
+      this.imageMode(p.CENTER);
     };
   
     p.draw = function() {
       p.background(255);
       p.fill(0);
       p.circle(this.mouseX, this.mouseY, 50);
+      p.image(this.teamTreeImg, 900, 610, 200, 150);
+    };
+
+    p.preload = function() {
+      this.teamTreeImg = p.loadImage('../../assets/sprout.png');
     };
   }
 
