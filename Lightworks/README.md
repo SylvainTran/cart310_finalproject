@@ -1,5 +1,9 @@
 # Lightworks
 
+### Done
+
+- Setup basic socket.io connection
+
 ### TODO
 - Socket.io, show cursors for other people live:
     - In decision council 
