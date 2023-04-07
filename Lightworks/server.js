@@ -25,5 +25,11 @@ io.on("connection", (socket) => {
   socket.on("hello from client", (...args) => {
     // ...
   });
+
+  // emit the "mouse" event to all connected clients with the current mouse position
+  socket.on('mouse', function(data) {
+    console.log('mouse:', data);
+    socket.broadcast.emit('mouse', data);
+  });
 });
 
